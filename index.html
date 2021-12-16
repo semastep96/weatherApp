@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Weather app</title>
+</head>
+<body>
+  <div class="weather">
+    <form class="search" onsubmit="return false">
+      <input type="text" placeholder="Aktobe" class="search__input">
+      <button class="search__btn"><img src="img/search.svg" alt="search button"></button>
+    </form>
+    <div class="main">
+      <div class="tabs main__side">
+        <div class="tabs__content now">
+          <div class="now__celsius">14°</div>
+          <img src="img/icons8-cloud-96 1.svg" alt="cloud" class="now__img">
+          <div class="now__bottom">
+            <div class="now__location">Aktobe</div>
+            <button class="now__like"></button>
+          </div>
+        </div>
+        <div class="tabs__content details">
+          <div class="location">Aktobe</div>
+          <div class="details__item details__temperature">Temperature: <span>14</span>°</div>
+          <div class="details__item details__feels">Feels like: <span>10</span>°</div>
+          <div class="details__item details__weather">Weather: <span>Clouds</span></div>
+          <div class="details__item details__sunrise">Sunrise: <span>03:21</span></div>
+          <div class="details__item details__sunset">Sunset: <span>18:54</span></div>
+        </div>
+        <div class="tabs__content forecast active">
+          <div class="location">Aktobe</div>
+          <div class="forecast__cards">
+            <div class="forecast__card card">
+              <div class="card__top">
+                <div class="card__date">17 May</div>
+                <div class="card__time">15:00</div>
+              </div>
+              <div class="card__bottom">
+                <div class="card__temperature">
+                  <div class="card__real">Temperature: <span>13</span>°</div>
+                  <div class="card__feels">Feels like: <span>10</span>°</div>
+                </div>
+                <div class="card__weather">Rain<img src="img/icon-rain.svg" alt="rain" class="card__img"></div>
+              </div>
+            </div>
+            <div class="forecast__card card">
+              <div class="card__top">
+                <div class="card__date">17 May</div>
+                <div class="card__time">12:00</div>
+              </div>
+              <div class="card__bottom">
+                <div class="card__temperature">
+                  <div class="card__real">Temperature: <span>13</span>°</div>
+                  <div class="card__feels">Feels like: <span>10</span>°</div>
+                </div>
+                <div class="card__weather">Rain<img src="img/icon-rain.svg" alt="rain" class="card__img"></div>
+              </div>
+            </div>
+            <div class="forecast__card card">
+              <div class="card__top">
+                <div class="card__date">17 May</div>
+                <div class="card__time">18:00</div>
+              </div>
+              <div class="card__bottom">
+                <div class="card__temperature">
+                  <div class="card__real">Temperature: <span>13</span>°</div>
+                  <div class="card__feels">Feels like: <span>10</span>°</div>
+                </div>
+                <div class="card__weather">Rain<img src="img/icon-rain.svg" alt="rain" class="card__img"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tabs__nav">
+            <button class="tabs__btn" data-tab="now">Now</button>
+            <button class="tabs__btn" data-tab="details">Details</button>
+            <button class="tabs__btn active" data-tab="forecast">Forecast</button>
+        </div>
+      </div>
+      <div class="locations main__side">
+        <h2 class="locations__header">
+          Added Locations:
+        </h2>
+        <div class="locations__container">
+          <div class="location">Amur</div>
+          <div class="location">Samara</div>
+          <div class="location">Bali</div>
+          <div class="location">Dane</div>
+          <div class="location">Kilo</div>
+          <div class="location">Nur-Sultan</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    made by semastep 96<br>tg: @semastep
+  </footer>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
