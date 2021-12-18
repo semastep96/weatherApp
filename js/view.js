@@ -4,8 +4,12 @@ export const UI = {
   TABS: document.querySelectorAll(".tabs__content"),
   TAB: {
     NOW: document.querySelector('.now')
-  }
+  },
+  LIKE: document.querySelector('.now__like'),
+  LOCATIONS: document.querySelector('.locations__container'),
 }
+
+UI.LOCATIONS.innerHTML = ""
 
 UI.TAB_NAV_BUTTONS.forEach(btn => {
   btn.addEventListener("click", tabBtnClickHandler)
@@ -26,4 +30,8 @@ function showTab(tabName) {
 
 UI.FORM.addEventListener("onsubmit", () => {
    this.document.querySelector(".search__input").value
+})
+
+UI.LIKE.addEventListener("click", function () {
+  this.classList.toggle('active')
 })

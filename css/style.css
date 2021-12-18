@@ -122,6 +122,29 @@ footer {
 .location {
   font-size: 24px;
   margin-bottom: 13px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2px;
+  cursor: pointer;
+}
+
+.location:hover {
+  background-color: rgba(92, 92, 92, 0.112);
+}
+
+.location__delete {
+  width: 19px;
+  height: 19px;
+  background-image: url('../img/icons8-delete-64.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+
+.location__delete:hover {
+  width: 20px;
+  height: 20px;
 }
 
 .tabs {
@@ -162,6 +185,7 @@ footer {
 }
 
 .tabs__btn.active {
+  transition: 0.2s;
   background-color: rgba(0, 0, 0, 1);
   color: #fff;
 }
@@ -211,11 +235,8 @@ footer {
   background-image: url("../img/heart_hover.svg");
 }
 
-.now__like:active {
-  background-image: url("../img/heart_active.svg");
-}
-
 .now__like.active {
+  transition: 0.2s;
   background-image: url("../img/heart_active.svg");
 }
 
