@@ -307,3 +307,38 @@ footer {
   flex-direction: column;
   justify-content: space-between;
 }
+
+@media screen and (max-width: 500px) {
+  .now__location {
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+  .location {
+    font-size: 12px;
+    font-weight: bold;
+  }
+  .tabs__btn {
+    font-size: 12px;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+  }
+  .now__bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .details {
+    font-size: 15px;
+  }
+
+  .details .location {
+    margin: 5px 0 15px;
+    font-size: 15px;
+  }
+  .card {
+    font-size: 12px;
+  }
+}
