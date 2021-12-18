@@ -1,6 +1,10 @@
 export const UI = {
+  FORM: document.querySelector(".search"),
   TAB_NAV_BUTTONS: document.querySelectorAll(".tabs__btn"),
   TABS: document.querySelectorAll(".tabs__content"),
+  TAB: {
+    NOW: document.querySelector('.now')
+  }
 }
 
 UI.TAB_NAV_BUTTONS.forEach(btn => {
@@ -19,3 +23,7 @@ function showTab(tabName) {
     tab.classList.contains(tabName) ? tab.classList.add("active") : tab.classList.remove("active")
   })
 }
+
+UI.FORM.addEventListener("onsubmit", () => {
+   this.document.querySelector(".search__input").value
+})

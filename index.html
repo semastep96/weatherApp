@@ -15,9 +15,9 @@
     </form>
     <div class="main">
       <div class="tabs main__side">
-        <div class="tabs__content now">
-          <div class="now__celsius">14°</div>
-          <img src="img/icons8-cloud-96 1.svg" alt="cloud" class="now__img">
+        <div class="tabs__content now active">
+          <div class="now__celsius"><span>14</span>°</div>
+          <img src="img/icons8-cloud-96 1.svg" class="now__img">
           <div class="now__bottom">
             <div class="now__location">Aktobe</div>
             <button class="now__like"></button>
@@ -31,7 +31,7 @@
           <div class="details__item details__sunrise">Sunrise: <span>03:21</span></div>
           <div class="details__item details__sunset">Sunset: <span>18:54</span></div>
         </div>
-        <div class="tabs__content forecast active">
+        <div class="tabs__content forecast">
           <div class="location">Aktobe</div>
           <div class="forecast__cards">
             <div class="forecast__card card">
@@ -76,9 +76,9 @@
           </div>
         </div>
         <div class="tabs__nav">
-            <button class="tabs__btn" data-tab="now">Now</button>
+            <button class="tabs__btn active" data-tab="now">Now</button>
             <button class="tabs__btn" data-tab="details">Details</button>
-            <button class="tabs__btn active" data-tab="forecast">Forecast</button>
+            <button class="tabs__btn" data-tab="forecast">Forecast</button>
         </div>
       </div>
       <div class="locations main__side">
