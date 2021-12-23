@@ -27,11 +27,3 @@ function showTab(tabName) {
     tab.classList.contains(tabName) ? tab.classList.add("active") : tab.classList.remove("active")
   })
 }
-
-UI.FORM.addEventListener("onsubmit", () => {
-   this.document.querySelector(".search__input").value
-})
-
-UI.LIKE.addEventListener("click", function () {
-  this.classList.toggle('active')
-})

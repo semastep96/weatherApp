@@ -126,10 +126,13 @@ footer {
   justify-content: space-between;
   align-items: center;
   padding: 0 2px;
+}
+
+.locations__container .location {
   cursor: pointer;
 }
 
-.location:hover {
+.locations__container .location:hover {
   background-color: rgba(92, 92, 92, 0.112);
 }
 
