@@ -13,7 +13,6 @@ function likeBtnHandler() {
   const cityName = UI.TAB.NOW.querySelector('.now__location').textContent
 
   isNew ? favorites.addCity(cityName) : favorites.deleteCity(cityName)
-
   storage.saveFavoriteCities(favorites.cities)
   render.favorites()
 }
@@ -23,15 +22,16 @@ export function formHandler() {
   this.reset()
   storage.saveCurrentCity(cityName)
   weather.getCityInfo(cityName)
-    .then(render.all)
+    .then(() => {weather.getForecast(cityName).then(render.all)})
     .catch(alert)
 }
 
 function start() {
+  const currentCity = storage.getCurrentCity()
   favorites.cities = storage.getFavoriteCities()
-  weather.getCityInfo(storage.getCurrentCity())
-          .then(render.all)
-          .catch(alert)
+  weather.getCityInfo(currentCity)
+    .then(() => {weather.getForecast(currentCity).then(render.all)})
+    .catch(alert)
 }
 
 start()

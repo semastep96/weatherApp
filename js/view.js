@@ -1,9 +1,10 @@
 export const UI = {
   FORM: document.querySelector(".search"),
   TAB_NAV_BUTTONS: document.querySelectorAll(".tabs__btn"),
-  TABS: document.querySelectorAll(".tabs__content"),
   TAB: {
-    NOW: document.querySelector('.now')
+    NOW: document.querySelector('.now'),
+    DETAILS: document.querySelector('.details'),
+    FORECAST: document.querySelector('.forecast'),
   },
   LIKE: document.querySelector('.now__like'),
   LOCATIONS: document.querySelector('.locations__container'),
@@ -23,7 +24,7 @@ function tabBtnClickHandler() {
 }
 
 function showTab(tabName) {
-  UI.TABS.forEach(tab => {
-    tab.classList.contains(tabName) ? tab.classList.add("active") : tab.classList.remove("active")
-  })
+  for (let tab in UI.TAB) {
+    UI.TAB[tab].classList.contains(tabName) ?  UI.TAB[tab].classList.add("active") :  UI.TAB[tab].classList.remove("active")
+  }
 }

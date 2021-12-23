@@ -27,6 +27,7 @@ body {
 button {
   background-color: transparent;
   cursor: pointer;
+  color: black;
 }
 
 footer {
