@@ -20,7 +20,6 @@ function likeBtnHandler() {
 export function formHandler() {
   const cityName = this.querySelector(".search__input").value;
   this.reset()
-  storage.saveCurrentCity(cityName)
   weather.getInfoAndRender(cityName).catch(alert)
 }
 

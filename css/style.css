@@ -118,7 +118,7 @@ footer {
 .locations__container {
   padding: 35px 18px;
   flex-grow: 1;
-  overflow: scroll;
+  overflow-y: scroll;
   height: 238px;
 }
 
@@ -269,7 +269,7 @@ footer {
 }
 
 .forecast__cards {
-  overflow: scroll;
+  overflow-y: scroll;
   height: 270px;
 }
 

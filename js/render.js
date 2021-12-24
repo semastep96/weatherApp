@@ -37,7 +37,6 @@ export const render = {
       }
       
       function locationHandler() {
-        storage.saveCurrentCity(city.name)
         weather.getInfoAndRender(city.name).catch(alert)
       }
 

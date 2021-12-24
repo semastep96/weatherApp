@@ -1,4 +1,5 @@
 import { render } from "./render.js";
+import { storage } from "./storage.js";
 
 const serverUrl = 'https://api.openweathermap.org/data/2.5/weather';
 const forecastServerUrl = 'https://api.openweathermap.org/data/2.5/forecast'
@@ -17,7 +18,9 @@ export const weather = {
           throw new Error("City is not found")
         }
         weather.info = info 
+        storage.saveCurrentCity(info.name)
       })
+      .catch(alert)
   },
   getForecast: cityName => {
     const url = `${forecastServerUrl}?q=${cityName}&appid=${apiKey}${metric}`;
@@ -35,6 +38,7 @@ export const weather = {
     return new Promise (() => {
       weather.getCityInfo(cityName)
         .then(() => {weather.getForecast(cityName).then(render.all)})
+        .catch(alert)
     })
   }
 }
