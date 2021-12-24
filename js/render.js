@@ -19,6 +19,7 @@ export const render = {
       }
     })
   },
+
   favorites: () => {
     UI.LOCATIONS.innerHTML = ""
 
@@ -37,22 +38,25 @@ export const render = {
       
       function locationHandler() {
         storage.saveCurrentCity(city.name)
-        weather.getCityInfo(city.name)
-          .then(() => weather.getForecast(city.name).then(render.all))
-          .catch(alert)
+        weather.getInfoAndRender(city.name).catch(alert)
       }
 
-      const location = document.createElement('div')
-      const btn = document.createElement('button')
-      location.classList.add("location")
-      location.textContent = city.name
-      btn.classList.add('location__delete')
-      btn.addEventListener('click', deleteBtnHandler)
-      location.append(btn)
-      location.addEventListener('click', locationHandler)
-      UI.LOCATIONS.append(location)
+      function createLocationDiv() {
+        const location = document.createElement('div')
+        const btn = document.createElement('button')
+        location.classList.add("location")
+        location.textContent = city.name
+        btn.classList.add('location__delete')
+        btn.addEventListener('click', deleteBtnHandler)
+        location.append(btn)
+        location.addEventListener('click', locationHandler)
+        return location
+      }
+
+      UI.LOCATIONS.append(createLocationDiv())
     })
   },
+
   details: () => {
     const sunrise = timeConvert(weather.info.sys.sunrise)
     const sunset = timeConvert(weather.info.sys.sunset)
@@ -64,9 +68,12 @@ export const render = {
     UI.TAB.DETAILS.querySelector('.details__sunrise span').textContent = `${sunrise.hours}:${sunrise.minutes}`
     UI.TAB.DETAILS.querySelector('.details__sunset span').textContent = `${sunset.hours}:${sunset.minutes}`
   },
+
   forecast: () => {
     const container = UI.TAB.FORECAST.querySelector('.forecast__cards')
+
     UI.TAB.FORECAST.querySelector('.location').textContent = weather.forecast.city.name
+    
     container.innerHTML = ""
     weather.forecast.list.forEach(forecast => {
       const date = timeConvert(forecast.dt)
@@ -120,6 +127,7 @@ export const render = {
       }
     })
   },
+
   all() {
     render.tabNow()
     render.favorites()

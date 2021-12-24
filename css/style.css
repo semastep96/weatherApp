@@ -7,6 +7,7 @@
 	margin: 0;
 	border: 0;
 	box-sizing: border-box;
+  border-radius: 0;
 }
 html,
 body {
@@ -17,6 +18,7 @@ body {
   font-style: normal;
   font-weight: normal;
   font-size: 24px;
+  color: #000;
   min-height: 100vh;
 }
 :active, :hover, :focus {

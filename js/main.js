@@ -21,17 +21,13 @@ export function formHandler() {
   const cityName = this.querySelector(".search__input").value;
   this.reset()
   storage.saveCurrentCity(cityName)
-  weather.getCityInfo(cityName)
-    .then(() => {weather.getForecast(cityName).then(render.all)})
-    .catch(alert)
+  weather.getInfoAndRender(cityName).catch(alert)
 }
 
 function start() {
   const currentCity = storage.getCurrentCity()
   favorites.cities = storage.getFavoriteCities()
-  weather.getCityInfo(currentCity)
-    .then(() => {weather.getForecast(currentCity).then(render.all)})
-    .catch(alert)
+  weather.getInfoAndRender(currentCity).catch(alert)
 }
 
 start()
