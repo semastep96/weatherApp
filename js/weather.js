@@ -3,7 +3,7 @@ import { storage } from "./storage.js";
 
 const serverUrl = 'https://api.openweathermap.org/data/2.5/weather';
 const forecastServerUrl = 'https://api.openweathermap.org/data/2.5/forecast'
-const apiKey = 'f660a2fb1e4bad108d6160b7f58c555f';
+const apiKey = '920b4a118979e137690af39581c7f381';
 const metric = '&units=metric'
 
 export const weather = {
