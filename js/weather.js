@@ -9,36 +9,40 @@ const metric = '&units=metric'
 export const weather = {
   info: null,
   forecast: null,
-  getCityInfo: cityName => {
+  getCityInfo: async cityName => {
     const url = `${serverUrl}?q=${cityName}&appid=${apiKey}${metric}`;
-    return fetch(url)
-      .then(response => { return response.json() })
-      .then(info => { 
-        if (!info.name) {
-          throw new Error("City is not found")
-        }
-        weather.info = info 
-        storage.saveCurrentCity(info.name)
-      })
-      .catch(alert)
+    try {
+      let response = await fetch(url)
+      if (response.status === 404) {
+        throw new Error("City is not found")
+      }
+      let info = await response.json()
+      weather.info = info 
+      storage.saveCurrentCity(info.name)
+    } catch (err) {
+      alert(err)
+    }
   },
-  getForecast: cityName => {
+  getForecast: async cityName => {
     const url = `${forecastServerUrl}?q=${cityName}&appid=${apiKey}${metric}`;
-    return fetch(url)
-      .then(response => { return response.json() })
-      .then(forecast => { 
-        if (forecast === 404) {
-          throw Error("Forecast not found:(")
-        }
-        weather.forecast = forecast 
-      })
-      .catch(alert)
+    try {
+      let response = await fetch(url)
+      if (response.status === 404) {
+        throw new Error("Forecast not found:(")
+      }
+      let forecast = await response.json()
+      weather.forecast = forecast 
+    } catch (err) {
+      alert(err)
+    }
   },
-  getInfoAndRender(cityName) {
-    return new Promise (() => {
-      weather.getCityInfo(cityName)
-        .then(() => {weather.getForecast(cityName).then(render.all)})
-        .catch(alert)
-    })
+  getInfoAndRender: async cityName => {
+    try {
+      await weather.getCityInfo(cityName)
+      await weather.getForecast(cityName)
+      render.all()
+    } catch (err) {
+      alert(err)
+    }
   }
 }
