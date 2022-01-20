@@ -3,15 +3,15 @@ export const storage = {
     if (!favoriteCities) {
       return
     }
-    const favorites = JSON.stringify(favoriteCities)
+    const favorites = JSON.stringify([...favoriteCities])
     localStorage.setItem("favoriteCities", favorites)
   },
   getFavoriteCities: function () {
     const favoriteCities = localStorage.getItem("favoriteCities")
     if (!favoriteCities) {
-      return []
+      return new Set([])
     }
-    return JSON.parse(favoriteCities)
+    return new Set(JSON.parse(favoriteCities))
   },
   saveCurrentCity: function (currentCity) {
     if (!currentCity) {

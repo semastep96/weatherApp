@@ -14,7 +14,7 @@ export const render = {
     UI.LIKE.classList.remove('active')
 
     favorites.cities.forEach(city => {
-      if (city.name === weather.info.name) {
+      if (city === weather.info.name) {
         UI.LIKE.classList.add('active')
       }
     })
@@ -25,26 +25,26 @@ export const render = {
 
     favorites.cities.forEach(city => {
       function deleteBtnHandler(event) {
-        const isDeleteCurrent = city.name === UI.TAB.NOW.querySelector('.now__location').textContent
+        const isDeleteCurrent = city === UI.TAB.NOW.querySelector('.now__location').textContent
 
         event.stopPropagation()
         this.parentElement.remove()
         if (isDeleteCurrent) {
           UI.LIKE.classList.remove('active')
         }
-        favorites.deleteCity(city.name)
+        favorites.deleteCity(city)
         storage.saveFavoriteCities(favorites.cities)
       }
       
       function locationHandler() {
-        weather.getInfoAndRender(city.name).catch(alert)
+        weather.getInfoAndRender(city).catch(alert)
       }
 
       function createLocationDiv() {
         const location = document.createElement('div')
         const btn = document.createElement('button')
         location.classList.add("location")
-        location.textContent = city.name
+        location.textContent = city
         btn.classList.add('location__delete')
         btn.addEventListener('click', deleteBtnHandler)
         location.append(btn)

@@ -1,15 +1,9 @@
 export const favorites = {
-  cities: [],
+  cities: new Set(),
   addCity(name) {
-    this.cities.push({
-      name,
-    })
+    this.cities.add(name)
   },
   deleteCity(name) {
-    this.cities.forEach((city, index) => {
-      if (name === city.name) {
-        this.cities.splice(index, 1)
-      }
-    })
+    this.cities.delete(name)
   }
 }
