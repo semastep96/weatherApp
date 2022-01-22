@@ -13,11 +13,20 @@ export const render = {
     UI.TAB.NOW.querySelector('.now__img').src = imgSrc
     UI.LIKE.classList.remove('active')
 
-    favorites.cities.forEach(city => {
-      if (city === weather.info.name) {
+    function makeFavoritesLikeActive (cities) {
+      const citiesCopy = [...cities]
+      const notArrOrEmpty = !Array.isArray(citiesCopy) || citiesCopy.length === 0
+
+      if (notArrOrEmpty) return
+
+      if (citiesCopy.pop() === weather.info.name) {
         UI.LIKE.classList.add('active')
+        return
       }
-    })
+      makeFavoritesLikeActive(citiesCopy)
+    }
+
+    makeFavoritesLikeActive(favorites.cities)
   },
 
   favorites: () => {
