@@ -1,4 +1,3 @@
-import { render } from "./render.js";
 import { storage } from "./storage.js";
 
 const serverUrl = 'https://api.openweathermap.org/data/2.5/weather';
@@ -40,6 +39,7 @@ export const weather = {
     try {
       await weather.getCityInfo(cityName)
       await weather.getForecast(cityName)
+      const render = await (await import("./render.js")).render
       render.all()
     } catch (err) {
       alert(err)

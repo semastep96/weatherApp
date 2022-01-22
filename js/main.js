@@ -1,6 +1,5 @@
 import { UI } from './view.js'
 import { favorites } from './favorites.js'
-import { render } from './render.js'
 import { storage } from './storage.js'
 import { weather } from './weather.js'
 
@@ -14,7 +13,7 @@ function likeBtnHandler() {
 
   isNew ? favorites.addCity(cityName) : favorites.deleteCity(cityName)
   storage.saveFavoriteCities(favorites.cities)
-  render.favorites()
+  import("./render.js").then(module => {module.render.favorites()}).catch(alert)
 }
 
 export function formHandler() {
