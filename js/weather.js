@@ -1,4 +1,4 @@
-import { storage } from "./storage.js";
+import { currentCity } from "./currentCity.js";
 
 const serverUrl = 'https://api.openweathermap.org/data/2.5/weather';
 const forecastServerUrl = 'https://api.openweathermap.org/data/2.5/forecast'
@@ -17,7 +17,7 @@ export const weather = {
       }
       let info = await response.json()
       weather.info = info 
-      storage.saveCurrentCity(info.name)
+      currentCity.save(info.name)
     } catch (err) {
       alert(err)
     }

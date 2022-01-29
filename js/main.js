@@ -2,6 +2,7 @@ import { UI } from './view.js'
 import { favorites } from './favorites.js'
 import { storage } from './storage.js'
 import { weather } from './weather.js'
+import { currentCity } from './currentCity.js'
 
 UI.FORM.addEventListener("submit", formHandler)
 UI.LIKE.addEventListener("click", likeBtnHandler)
@@ -23,9 +24,9 @@ export function formHandler() {
 }
 
 function start() {
-  const currentCity = storage.getCurrentCity()
+  const current = currentCity.get()
   favorites.cities = storage.getFavoriteCities()
-  weather.getInfoAndRender(currentCity).catch(alert)
+  weather.getInfoAndRender(current).catch(alert)
 }
 
 start()

@@ -1,0 +1,22 @@
+{
+  "name": "weatherapp",
+  "version": "1.0.0",
+  "description": "simple weather app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/semastep96/weatherApp.git"
+  },
+  "author": "semastep96",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/semastep96/weatherApp/issues"
+  },
+  "homepage": "https://github.com/semastep96/weatherApp#readme",
+  "dependencies": {
+    "js-cookie": "^3.0.1"
+  }
+}

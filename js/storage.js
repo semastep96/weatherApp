@@ -13,17 +13,4 @@ export const storage = {
     }
     return new Set(JSON.parse(favoriteCities))
   },
-  saveCurrentCity: function (currentCity) {
-    if (!currentCity) {
-      return
-    }
-    localStorage.setItem("currentCity", currentCity)
-  },
-  getCurrentCity: function () {
-    const currentCity = localStorage.getItem("currentCity")
-    if (!currentCity) {
-      return "Aktobe"
-    }
-    return currentCity
-  },
 }
